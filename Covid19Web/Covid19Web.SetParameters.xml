@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="Covid19" />
+  <setParameter name="DefaultConnection-Web.config Connection String" value="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-Covid19Web-20200604102013.mdf;Initial Catalog=aspnet-Covid19Web-20200604102013;Integrated Security=True" />
+</parameters>

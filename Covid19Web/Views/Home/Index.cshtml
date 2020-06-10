@@ -1,0 +1,649 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    String sessionId = ViewBag.Session;
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div id="success" class="alert alert-success hide" role="alert">
+            Request was saved succesfully
+        </div>
+        <div id="error" class="alert alert-danger hide" role="alert">
+            Error occured
+        </div>
+        <form id="example-advanced-form" action="#">
+            @Html.Hidden("sessionId", sessionId)
+            <h3>Personal Details</h3>
+            <fieldset>
+                <legend>General Information</legend>
+                <div class="row wiz-form">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <input id="isPassport" name="isPassport" type="checkbox" class="required">
+                                <label>Passport</label>
+                            </div>
+                            <div class="col-md-4">
+                                <input id="isIDCard" name="isIDCard" type="checkbox" class="required">
+                                <label>ID Card</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <label>Id / Passport No</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input id="idNumber" name="idNumber" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <label>First Name</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input id="firstName" name="firstName" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <label>Surname</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input id="lastName" name="lastName" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <label>Birth Date</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="date" id="birthdate" name="birthdate">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <label>Gender</label>
+                            </div>
+                            <div class="col-md-8">
+                                <select id="sex" name="sex">
+                                    <option>Female</option>
+                                    <option>Male</option>
+                                    <option>Undefined</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <label>Residence Place</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input id="city" name="city" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <label>Full Address</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input id="address" name="address" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <label>Phone No</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input id="phone" name="phone" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <label>Email</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input id="email" name="email" type="email">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <h3>Documents</h3>
+            <fieldset>
+                <legend>Upload Documents</legend>
+
+                <div id="dropZone" class="dropzone"></div>
+
+            </fieldset>
+
+            <h3>Questions</h3>
+            <fieldset>
+                <legend>Answer some questions</legend>
+                <div class="row wiz-form">
+
+                    <div class="col-md-6">
+                        <div class="col-md-10">
+                            <p><label>Have you had fever in the last 3 days? If so please specify</label></p>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-primary" type="button" aria-expanded="false" id="quest1">Yes</button>
+                        </div>
+                        <div class="col-md-8 box-div">
+                            <div class="collapse" id="quest1-collapse">
+                                <textarea id="txt_1" name="txt_1" rows="2"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-10">
+                            <p><label>Have you ever been diagnosed with Corona Virus? If so please specify</label></p>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-primary" type="button" aria-expanded="false" id="quest2">Yes</button>
+                        </div>
+                        <div class="col-md-10 box-div">
+                            <div class="collapse" id="quest2-collapse">
+                                <textarea id="txt_2" name="txt_2" rows="2"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-10">
+                            <p><label>To your knowledge, have you been in contact witha a Corona patient in the last 4 days? If so please specify</label></p>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-primary" type="button" aria-expanded="false" id="quest3">Yes</button>
+                        </div>
+                        <div class="col-md-10 box-div">
+                            <div class="collapse" id="quest3-collapse">
+                                <textarea id="txt_3" name="txt_3" rows="2"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="col-md-10">
+                            <p><label>Do you have plans to fly abroad in the near future? If so please specify your destination, travel dates and flight No</label></p>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-primary" type="button" aria-expanded="false" id="quest4">Yes</button>
+                        </div>
+                        <div class="col-md-12 box-div">
+                            <div class="collapse" id="quest4-collapse">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="col-md-3">Flight No</th>
+                                            <th scope="col" class="col-md-3">Company</th>
+                                            <th scope="col" class="col-md-3">Destination</th>
+                                            <th scope="col" class="col-md-3">Departure</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row" class="col-md-3">
+                                                <input id="fn_1" name="fn_1" type="text">
+                                            </th>
+                                            <td class="col-md-3">
+                                                <select id="fc_1" name="fc_1" placeholder="Select Company">
+                                                    <option>EL AL</option>
+                                                    <option>Lufthansa</option>
+                                                    <option>British Airways</option>
+                                                    <option>Delta</option>
+                                                    <option>Thai Airways</option>
+                                                    <option>Ryanair</option>
+                                                    <option>Air France</option>
+                                                </select>
+                                            </td>
+                                            <td class="col-md-3">
+                                                <input id="dst_1" name="dst_1" type="text">
+                                            </td>
+                                            <td class="col-md-3">
+                                                <input type="datetime-local" id="dep_1" name="dep_1">
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="col-md-3">
+                                                <input id="fn_2" name="fn_2" type="text">
+                                            </th>
+                                            <td class="col-md-3">
+                                                <select id="fc_2" name="fc_2" placeholder="Select Company">
+                                                    <option>EL AL</option>
+                                                    <option>Lufthansa</option>
+                                                    <option>British Airways</option>
+                                                    <option>Delta</option>
+                                                    <option>Thai Airways</option>
+                                                    <option>Ryanair</option>
+                                                    <option>Air France</option>
+                                                </select>
+                                            </td>
+                                            <td class="col-md-3">
+                                                <input id="dst_2" name="dst_2" type="text">
+                                            </td>
+                                            <td class="col-md-3">
+                                                <input type="datetime-local" id="dep_2" name="dep_2">
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="col-md-3">
+                                                <input id="fn_3" name="fn_3" type="text">
+                                            </th>
+                                            <td class="col-md-3">
+                                                <select id="fc_3" name="fc_3" placeholder="Select Company">
+                                                    <option>EL AL</option>
+                                                    <option>Lufthansa</option>
+                                                    <option>British Airways</option>
+                                                    <option>Delta</option>
+                                                    <option>Thai Airways</option>
+                                                    <option>Ryanair</option>
+                                                    <option>Air France</option>
+                                                </select>
+                                            </td>
+                                            <td class="col-md-3">
+                                                <input id="dst_3" name="dst_3" type="text">
+                                            </td>
+                                            <td class="col-md-3">
+                                                <input type="datetime-local" id="dep_3" name="dep_3">
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <h3>Appointment</h3>
+            <fieldset>
+                <legend>Make an Appointment</legend>
+                <div class="row wiz-form">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <label>Districts</label>
+                            </div>
+                            <div class="col-md-8">
+                                <select id="district" name="district" placeholder="Select District">
+                                    <option>Select District</option>
+                                    <option>Haifa District</option>
+                                    <option>Jerusalem District</option>
+                                    <option>Tel Aviv District</option>
+                                    <option>Central District</option>
+                                    <option>Northern District</option>
+                                    <option>Southern District</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <label>Clinics</label>
+                            </div>
+                            <div class="col-md-8">
+                                <select id="clinic" name="clinic" placeholder="Select Clinic"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <label>Date</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="datetime-local" id="appointmentDate" name="appointmentDate">
+                            </div>
+                        </div>
+                        <div id="myCarousel" style="display:none;" class="carousel slide" data-ride="carousel">
+          
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <table class="table">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col">Day/Hour</th>
+                                                <th scope="col">08:00 - 09:00</th>
+                                                <th scope="col">09:00 - 10:00</th>
+                                                <th scope="col">10:00 - 11:00</th>
+                                                <th scope="col">11:00 - 12:00</th>
+                                                <th scope="col">12:00 - 13:00</th>
+                                                <th scope="col">13:00 - 14:00</th>
+                                                <th scope="col">14:00 - 15:00</th>
+                                                <th scope="col">15:00 - 16:00</th>
+                                                <th scope="col">16:00 - 17:00</th>
+                                                <th scope="col">17:00 - 18:00</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="body-1">
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="item">
+                                    <table class="table">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col">Day/Hour</th>
+                                                <th scope="col">08:00 - 09:00</th>
+                                                <th scope="col">09:00 - 10:00</th>
+                                                <th scope="col">10:00 - 11:00</th>
+                                                <th scope="col">11:00 - 12:00</th>
+                                                <th scope="col">12:00 - 13:00</th>
+                                                <th scope="col">13:00 - 14:00</th>
+                                                <th scope="col">14:00 - 15:00</th>
+                                                <th scope="col">15:00 - 16:00</th>
+                                                <th scope="col">16:00 - 17:00</th>
+                                                <th scope="col">17:00 - 18:00</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="body-2">
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="item">
+                                    <table class="table">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col">Day/Hour</th>
+                                                <th scope="col">08:00 - 09:00</th>
+                                                <th scope="col">09:00 - 10:00</th>
+                                                <th scope="col">10:00 - 11:00</th>
+                                                <th scope="col">11:00 - 12:00</th>
+                                                <th scope="col">12:00 - 13:00</th>
+                                                <th scope="col">13:00 - 14:00</th>
+                                                <th scope="col">14:00 - 15:00</th>
+                                                <th scope="col">15:00 - 16:00</th>
+                                                <th scope="col">16:00 - 17:00</th>
+                                                <th scope="col">17:00 - 18:00</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="body-3">
+                                         
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="item">
+                                    <table class="table">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col">Day/Hour</th>
+                                                <th scope="col">08:00 - 09:00</th>
+                                                <th scope="col">09:00 - 10:00</th>
+                                                <th scope="col">10:00 - 11:00</th>
+                                                <th scope="col">11:00 - 12:00</th>
+                                                <th scope="col">12:00 - 13:00</th>
+                                                <th scope="col">13:00 - 14:00</th>
+                                                <th scope="col">14:00 - 15:00</th>
+                                                <th scope="col">15:00 - 16:00</th>
+                                                <th scope="col">16:00 - 17:00</th>
+                                                <th scope="col">17:00 - 18:00</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="body-4">
+                                       
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<script>
+    Dropzone.autoDiscover = false;
+
+    Dropzone.options.dropZone = {
+        paramName: "file", // The name that will be used to transfer the file
+        maxFilesize: 2, // MB
+        accept: function (file, done) {
+            console.log(file);
+            done();
+        },
+        headers : {
+            'session': $("#sessionId").val()
+        }
+    };
+
+    var locations = {
+        'Haifa District': ['Select Clinic','Rambam Medical Center', 'Bnai Zion Medical Center', 'Carmel Hospital'],
+        'Jerusalem District': ['Select Clinic','Hadassah Ein Kerem Hospital', 'Shaare Zedek Medical Center', 'Bikur Holim Hospital','Hadassah Mount Scopus Hospital'],
+        'Tel Aviv District': ['Select Clinic','Assuta Medical Center', 'Ichilov Hospital', 'Sheba Medical Center ','Wolfson Medical Center'],
+        'Central District': ['Select Clinic','Meir Hospital', 'Laniado Hospital', 'Rabin Medical Center','Kaplan Medical Center'],
+        'Northern District': ['Select Clinic','HaEmek Medical Center', 'Galilee Medical Center'],
+        'Southern District': ['Select Clinic','Assuta Ashdod Medical Center', 'Barzilai Medical Center', 'Soroka Medical Center','Yoseftal Medical Center']
+    }
+
+    $(document).ready(function () {
+
+        $("#example-advanced-form").steps({
+            headerTag: "h3",
+            bodyTag: "fieldset",
+            transitionEffect: "slide",
+            onFinished : function () {
+                var wizard = new Object();
+                wizard.Session = $("#sessionId").val();
+                wizard.IDNumber = $('#idNumber').val();
+                wizard.FirstName = $('#firstName').val();
+                wizard.LastName = $('#lastName').val();
+                if ($('#isIDCard').is(":checked")) {
+                    wizard.IsIDCard = true;
+                }
+                if ($('#isPassport').is(":checked")) {
+                    wizard.IsPassport = true;
+                }
+                wizard.BirthDate = $('#birthdate').val();
+                wizard.Sex = $('#sex').prop('selectedIndex');
+                wizard.City = $('#city').val();
+                wizard.Address = $('#address').val();
+                wizard.Phone = $('#phone').val();
+                wizard.Email = $('#email').val();
+                wizard.Question1 = $('#txt_1').val();
+                wizard.Question2 = $('#txt_2').val();
+                wizard.Question3 = $('#txt_3').val();
+
+                var flight1 = new Object();
+                flight1.FlightNo = $('#fn_1').val();
+                flight1.Company = $('#fc_1').prop('selectedIndex');
+                flight1.Destination = $('#dst_1').val();
+                flight1.Departure = $('#dep_1').val();
+
+                var flight2 = new Object();
+                flight2.FlightNo = $('#fn_2').val();
+                flight2.Company = $('#fc_2').prop('selectedIndex');
+                flight2.Destination = $('#dst_2').val();
+                flight2.Departure = $('#dep_2').val();
+
+                var flight3 = new Object();
+                flight3.FlightNo = $('#fn_3').val();
+                flight3.Company = $('#fc_3').prop('selectedIndex');
+                flight3.Destination = $('#dst_3').val();
+                flight3.Departure = $('#dep_3').val();
+
+                wizard.Flights = [3];
+                wizard.Flights[0] = flight1;
+                wizard.Flights[1] = flight2;
+                wizard.Flights[2] = flight3;
+
+                wizard.District = $('#district').prop('selectedIndex');
+                wizard.Clinic = $('#clinic').prop('selectedIndex');
+                wizard.AppointmentDate = $('#appointmentDate').val();
+
+                if (wizard != null) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/home/ajaxpostcall",
+                        data: JSON.stringify(wizard),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (response) {
+                            if (response != null) {
+                                $("#success").removeClass("hide").hide().fadeIn("slow");
+                                //alert("FirstName : " + response.FirstName + ", IDNumber : " + response.IDNumber + ", IsIDCard :" + response.IsIDCard + ", IsPassport :" + response.IsPassport + ", LastName :" + response.LastName + ", Address :" + response.Address + ", BirthDate :" + response.BirthDate + ", City :" + response.City + ", Sex :" + response.Sex);
+                            } else {
+                                $("#error").removeClass("hide").hide().fadeIn("slow");
+                                //alert("Something went wrong");
+                            }
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                }
+            }
+        });
+ 
+        $("#dropZone").dropzone({ url: "/home/savefile" });
+    
+        $("#quest1").click(function () {
+            $('#quest1-collapse').collapse("toggle");
+          
+            if ($("#quest1").html() == "Yes") {
+                $("#quest1").html("No");
+            } else {
+                $("#quest1").html("Yes");
+            }
+        });
+
+        $("#quest2").click(function () {
+            $('#quest2-collapse').collapse("toggle");
+     
+            if ($("#quest2").html() == "Yes") {
+                $("#quest2").html("No");
+            } else {
+                $("#quest2").html("Yes");
+            }
+        });
+
+        $("#quest3").click(function () {
+            $('#quest3-collapse').collapse("toggle");
+       
+            if ($("#quest3").html() == "Yes") {
+                $("#quest3").html("No");
+            } else {
+                $("#quest3").html("Yes");
+            }
+        });
+
+        $("#quest4").click(function () {
+            $('#quest4-collapse').collapse("toggle");
+            console.log($("#quest4").html());
+            if ($("#quest4").html() == "Yes") {
+                $("#quest4").html("No");
+            } else {
+                $("#quest4").html("Yes");
+            }
+        });
+
+        $('#myCarousel').carousel({
+            interval: false
+        })
+
+     
+
+        var $clinics = $('#clinic');
+        $('#district').change(function () {
+            $("#myCarousel").hide();
+            var country = $(this).val(), lcns = locations[country] || [];
+
+            var html = $.map(lcns, function (lcn) {
+                return '<option value="' + lcn + '">' + lcn + '</option>'
+            }).join('');
+            $clinics.html(html)
+         
+        });
+
+        $("#clinic").change(function () {
+            var text = $(this).val();
+     
+            if (text != "Select Clinic") {
+                $("#myCarousel").show();
+                buildTable("body-1", 1);
+                buildTable("body-2", 2);
+                buildTable("body-3", 3);
+                buildTable("body-4", 4);
+
+                $(".click-td").click(function () {
+                    var time = "";
+                    if ($(this).data("time") < 2) {
+                        time = "0" + (8 + $(this).data("time"));
+                    } else {
+                        time = (8 + $(this).data("time"));
+                    }
+
+                    var dt = "2020-07-" + $(this).data("date") + "T" + time +":00";
+                    console.log(dt);
+                    $("#appointmentDate").val(dt);
+                });
+
+
+            } else {
+                $("#myCarousel").hide();
+            }
+        })
+
+        
+    });
+
+    function buildTable(id, ind) {
+        var str = "";
+        for (var i = 0; i < 6; i++) {
+            str += "<tr>";
+            str += '<th scope="row">' + getWeekDay(i)+'</th>'
+            for (var j = 0; j < 10; j++) {
+                if (Math.floor(Math.random() * 10) < 7) {
+                    str += '<td></td>';
+                } else {
+                    str += '<td class="click-td active" data-date="' + (ind*10 + i) + '" data-time="' + j +'"><div>available</div></td>';
+                }
+            }
+            str += "</tr>";
+        }
+        str += "</tr>";
+        $("#" + id).html(str);
+    }
+
+    function getWeekDay(id) {
+        switch (id) {
+            case 0:
+                return "Sunday";
+            case 1:
+                return "Monday";
+            case 2:
+                return "Tuesday";
+            case 3:
+                return "Wednesday";
+            case 4:
+                return "Thursday";
+            case 5:
+                return "Friday";
+        }
+    }
+
+</script>
